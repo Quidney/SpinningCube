@@ -1,0 +1,4 @@
+﻿interface IRenderable
+{
+    void Render();
+}
