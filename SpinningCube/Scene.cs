@@ -4,7 +4,7 @@
 
     public Scene()
     {
-        renderables = new List<IRenderable>();
+        renderables = [];
     }
 
     public void AddObject(IRenderable obj)
@@ -14,7 +14,7 @@
 
     public void RenderScene(RenderBuffer buffer)
     {
-        foreach (var obj in renderables)
+        foreach (IRenderable obj in renderables)
         {
             obj.Render();
         }

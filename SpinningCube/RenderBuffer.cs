@@ -1,4 +1,6 @@
-﻿class RenderBuffer
+﻿using System.Text;
+
+class RenderBuffer
 {
     public int ScreenWidth => screenWidth;
     private readonly int screenWidth;
@@ -39,10 +41,12 @@
     public void Display()
     {
         Console.SetCursorPosition(0, 0);
+        StringBuilder sb = new(screenWidth * screenHeight + screenHeight);
         for (int i = 0; i < frameBuffer.Length; i++)
         {
-            if (i % screenWidth == 0) Console.Write('\n');
-            Console.Write(frameBuffer[i]);
+            if (i % screenWidth == 0 && i != 0) sb.Append('\n');
+            sb.Append(frameBuffer[i]);
         }
+        Console.Write(sb.ToString());
     }
 }
